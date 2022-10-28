@@ -1,1 +1,35 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: center-user
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/tsuki?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: qwe123
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 60000
+      connection-timeout: 60000
+      validation-timeout: 3000
+      login-timeout: 5
+      max-lifetime: 60000
+      read-only: false
+
+mybatis-plus:
+  mapper-locations: classpath*:**/mapper/*/*.xml
+  global-config:
+    db-config:
+      # 生成ID方式： AUTO 数据库自增  INPUT 自己输入  ASSIGN_UUID 默认生成器
+      id-type: AUTO
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  type-aliases-package: com.*
+
 
