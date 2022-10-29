@@ -2,7 +2,7 @@ package com.moonlit.centeruser.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.moonlit.centeruser.entity.User;
-import com.moonlit.centeruser.entity.vo.UserVO;
+import com.moonlit.centeruser.entity.dto.UserDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -22,6 +22,6 @@ public interface UserMapper extends BaseMapper<User> {
      * @param accountId 用户id
      * @return 用户
      */
-    UserVO getUserByAccountId(String accountId);
+    UserDTO getUserByAccountId(String accountId);
 
 }

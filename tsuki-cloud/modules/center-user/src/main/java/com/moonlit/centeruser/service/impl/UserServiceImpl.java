@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.moonlit.centeruser.entity.User;
 import com.moonlit.centeruser.entity.UserDetail;
 import com.moonlit.centeruser.entity.dto.UserDTO;
-import com.moonlit.centeruser.entity.vo.UserVO;
+import com.moonlit.centeruser.entity.dto.UserUpdateDTO;
 import com.moonlit.centeruser.mapper.UserMapper;
 import com.moonlit.centeruser.service.UserDetailService;
 import com.moonlit.centeruser.service.UserService;
@@ -69,7 +69,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * @return 用户
      */
     @Override
-    public UserVO getUserVoByAccountId(String accountId) {
+    public UserDTO getUserVoByAccountId(String accountId) {
         return baseMapper.getUserByAccountId(accountId);
     }
 
@@ -110,14 +110,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     /**
      * 修改用户
      *
-     * @param userDTO 用户实体
+     * @param userUpdateDTO 用户实体
      * @return 结果
      */
     @Override
-    public Boolean updateUser(UserDTO userDTO) {
-        User user = this.getUserByAccountId(userDTO.getAccountId());
-        user.setAccount(userDTO.getAccount());
-        user.setStatus(userDTO.getStatus());
+    public Boolean updateUser(UserUpdateDTO userUpdateDTO) {
+        User user = this.getUserByAccountId(userUpdateDTO.getAccountId());
+        user.setAccount(userUpdateDTO.getAccount());
+        user.setStatus(userUpdateDTO.getStatus());
         return this.updateById(user);
     }
 

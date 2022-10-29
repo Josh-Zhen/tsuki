@@ -3,7 +3,7 @@ package com.moonlit.centeruser.controller;
 import com.moonlit.centeruser.constant.UserErrorEnum;
 import com.moonlit.centeruser.entity.User;
 import com.moonlit.centeruser.entity.dto.UserDTO;
-import com.moonlit.centeruser.entity.vo.UserVO;
+import com.moonlit.centeruser.entity.dto.UserUpdateDTO;
 import com.moonlit.centeruser.service.UserService;
 import com.moonlit.common.exception.BusinessException;
 import com.moonlit.common.response.Result;
@@ -44,8 +44,8 @@ public class UserController {
      * @return 用户
      */
     @GetMapping("/get{accountId}")
-    public Result<UserVO> getUser(@PathVariable String accountId) {
-        UserVO user = userService.getUserVoByAccountId(accountId);
+    public Result<UserDTO> getUser(@PathVariable String accountId) {
+        UserDTO user = userService.getUserVoByAccountId(accountId);
         // 用戶被禁用
         if (!user.getStatus()) {
             throw new BusinessException(UserErrorEnum.USER_IS_DISABLED);
@@ -67,12 +67,12 @@ public class UserController {
     /**
      * 修改用户
      *
-     * @param userDTO 用户实体
+     * @param userUpdateDTO 用户实体
      * @return 结果
      */
     @PostMapping("/update")
-    public Result<Boolean> editSave(@RequestBody UserDTO userDTO) {
-        return Result.success(userService.updateUser(userDTO));
+    public Result<Boolean> editSave(@RequestBody UserUpdateDTO userUpdateDTO) {
+        return Result.success(userService.updateUser(userUpdateDTO));
     }
 
     /**

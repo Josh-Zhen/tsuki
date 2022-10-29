@@ -3,7 +3,7 @@ package com.moonlit.centeruser.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.moonlit.centeruser.entity.User;
 import com.moonlit.centeruser.entity.dto.UserDTO;
-import com.moonlit.centeruser.entity.vo.UserVO;
+import com.moonlit.centeruser.entity.dto.UserUpdateDTO;
 import com.moonlit.mybatis.page.PageResult;
 
 /**
@@ -30,7 +30,7 @@ public interface UserService extends IService<User> {
      * @param accountId 用户id
      * @return 用户
      */
-    UserVO getUserVoByAccountId(String accountId);
+    UserDTO getUserVoByAccountId(String accountId);
 
     /**
      * 查询用户
@@ -51,10 +51,10 @@ public interface UserService extends IService<User> {
     /**
      * 修改用户
      *
-     * @param userDTO 用户实体
+     * @param userUpdateDTO 用户实体
      * @return 结果
      */
-    Boolean updateUser(UserDTO userDTO);
+    Boolean updateUser(UserUpdateDTO userUpdateDTO);
 
     /**
      * 批量删除用户

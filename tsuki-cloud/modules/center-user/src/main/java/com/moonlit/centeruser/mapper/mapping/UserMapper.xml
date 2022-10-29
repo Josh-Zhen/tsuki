@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.moonlit.centeruser.mapper.UserMapper">
 
-    <select id="getUserByAccountId" resultType="com.moonlit.centeruser.entity.vo.UserVO">
+    <select id="getUserByAccountId" resultType="com.moonlit.centeruser.entity.dto.UserDTO">
         SELECT cu.account_id,
                cu.account,
                cu.`status`,

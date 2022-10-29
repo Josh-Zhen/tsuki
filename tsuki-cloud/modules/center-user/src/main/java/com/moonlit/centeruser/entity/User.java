@@ -3,7 +3,7 @@ package com.moonlit.centeruser.entity;
 import cn.hutool.core.date.DatePattern;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.moonlit.centeruser.entity.dto.UserDTO;
+import com.moonlit.centeruser.entity.dto.UserUpdateDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -67,7 +67,7 @@ public class User implements Serializable {
      *
      * @param user 用戶信息
      */
-    public User(UserDTO user) {
+    public User(UserUpdateDTO user) {
         this.accountId = user.getAccountId();
         this.account = user.getAccount();
         this.password = user.getPassword();
