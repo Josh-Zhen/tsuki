@@ -38,7 +38,7 @@ public class Result<T> implements Serializable {
     private String message;
 
     /**
-     * 编码
+     * 错误码
      */
     private Integer code;
 
@@ -105,7 +105,7 @@ public class Result<T> implements Serializable {
     /**
      * 失败
      *
-     * @param code 编码
+     * @param code 错误码
      * @param msg  消息
      * @param <T>  无入参
      * @return 结果

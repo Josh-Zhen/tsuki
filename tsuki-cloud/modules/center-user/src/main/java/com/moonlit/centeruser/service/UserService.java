@@ -2,6 +2,9 @@ package com.moonlit.centeruser.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.moonlit.centeruser.entity.User;
+import com.moonlit.centeruser.entity.dto.UserDTO;
+import com.moonlit.centeruser.entity.vo.UserVO;
+import com.moonlit.mybatis.page.PageResult;
 
 /**
  * 用户业务层
@@ -12,5 +15,53 @@ import com.moonlit.centeruser.entity.User;
  * @email by.Moonlit@hotmail.com
  */
 public interface UserService extends IService<User> {
+
+    /**
+     * 分页查询用户
+     *
+     * @param user 用户实体
+     * @return 用户集合
+     */
+    PageResult<User> pageList(User user);
+
+    /**
+     * 查询用户（包含详情）
+     *
+     * @param accountId 用户id
+     * @return 用户
+     */
+    UserVO getUserVoByAccountId(String accountId);
+
+    /**
+     * 查询用户
+     *
+     * @param accountId 用户id
+     * @return 用户
+     */
+    User getUserByAccountId(String accountId);
+
+    /**
+     * 新增用户
+     *
+     * @param user 用户实体
+     * @return 结果
+     */
+    Boolean insertUser(User user);
+
+    /**
+     * 修改用户
+     *
+     * @param userDTO 用户实体
+     * @return 结果
+     */
+    Boolean updateUser(UserDTO userDTO);
+
+    /**
+     * 批量删除用户
+     *
+     * @param ids 需要删除的数据ID
+     * @return 结果
+     */
+    Boolean deleteUserByIds(String ids);
 
 }

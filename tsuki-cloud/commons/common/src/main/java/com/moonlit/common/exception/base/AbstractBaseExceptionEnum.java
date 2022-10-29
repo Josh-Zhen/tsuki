@@ -13,7 +13,7 @@ public interface AbstractBaseExceptionEnum {
     /**
      * 错误码
      *
-     * @return 编码
+     * @return 错误码
      */
     Integer getCode();
 

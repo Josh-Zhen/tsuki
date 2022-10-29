@@ -18,6 +18,8 @@ spring:
       login-timeout: 5
       max-lifetime: 60000
       read-only: false
+  main:
+    allow-circular-references: true
 
 mybatis-plus:
   mapper-locations: classpath*:**/mapper/*/*.xml
@@ -30,6 +32,4 @@ mybatis-plus:
     cache-enabled: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     #    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
-  type-aliases-package: com.*
-
 
