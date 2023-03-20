@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * HttpServlet工具类，获取当前request和response
+ * HttpServlet工具类
  *
  * @author Joshua
  * @version 1.0

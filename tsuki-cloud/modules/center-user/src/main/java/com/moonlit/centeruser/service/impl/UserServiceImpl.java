@@ -14,7 +14,7 @@ import com.moonlit.centeruser.mapper.UserMapper;
 import com.moonlit.centeruser.service.UserDetailService;
 import com.moonlit.centeruser.service.UserService;
 import com.moonlit.common.exception.BusinessException;
-import com.moonlit.common.exception.enums.BusinessErrorEnum;
+import com.moonlit.common.exception.enums.GeneralBusinessErrorEnum;
 import com.moonlit.mybatis.page.PageFactory;
 import com.moonlit.mybatis.page.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,7 +103,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             detail.setUserId(user.getId());
             return userDetailService.insertUserDetail(detail);
         } catch (Exception e) {
-            throw new BusinessException(BusinessErrorEnum.INSERT_ERROR.getCode(), e.getMessage());
+            throw new BusinessException(GeneralBusinessErrorEnum.INSERT_ERROR.getCode(), e.getMessage());
         }
     }
 

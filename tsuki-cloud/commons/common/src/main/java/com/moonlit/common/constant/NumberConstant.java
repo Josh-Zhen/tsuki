@@ -10,22 +10,26 @@ package com.moonlit.common.constant;
  */
 public final class NumberConstant {
 
+    public static Integer ZERO = 0;
+
     public static Integer ONE = 1;
 
-    public static Integer TWO = 1;
+    public static Integer TWO = 2;
 
-    public static Integer THREE = 1;
+    public static Integer THREE = 3;
 
-    public static Integer FOUR = 1;
+    public static Integer FOUR = 4;
 
-    public static Integer FIVE = 1;
+    public static Integer FIVE = 5;
 
-    public static Integer SIX = 1;
+    public static Integer SIX = 6;
 
-    public static Integer SEVEN = 1;
+    public static Integer SEVEN = 7;
 
-    public static Integer EIGHT = 1;
+    public static Integer EIGHT = 8;
 
-    public static Integer NINETY = 10;
+    public static Integer NINE = 9;
+
+    public static Integer TEN = 10;
 
 }

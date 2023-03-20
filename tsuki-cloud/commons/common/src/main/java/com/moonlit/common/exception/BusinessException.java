@@ -49,7 +49,7 @@ public class BusinessException extends RuntimeException {
     /**
      * 自定义异常
      *
-     * @param exception 自定义异常
+     * @param exception 自定义异常类
      */
     public BusinessException(AbstractBaseExceptionEnum exception) {
         super(exception.getMessage());
@@ -63,12 +63,15 @@ public class BusinessException extends RuntimeException {
      * @param e 系统异常类
      */
     public BusinessException(Exception e) {
-        super(e);
+        super(e.getMessage());
         this.code = Result.CODE_500;
         this.message = e.getMessage();
+        this.e = e;
     }
 
     /**
+     * 自定义异常
+     *
      * @param code    错误码
      * @param message 异常说明
      * @param e       系统异常类

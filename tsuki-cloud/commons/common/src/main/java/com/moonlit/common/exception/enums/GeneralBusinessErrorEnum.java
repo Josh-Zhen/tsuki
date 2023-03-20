@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 业务枚举类
+ * 通用业务枚举类
  *
  * @author Joshua
  * @version 1.0
@@ -14,7 +14,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum BusinessErrorEnum implements AbstractBaseExceptionEnum {
+public enum GeneralBusinessErrorEnum implements AbstractBaseExceptionEnum {
 
     // 异常
     INSERT_ERROR(1000, "新增失败"),
