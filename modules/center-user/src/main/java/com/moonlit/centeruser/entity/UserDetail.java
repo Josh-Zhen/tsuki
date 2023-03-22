@@ -1,0 +1,56 @@
+package com.moonlit.centeruser.entity;
+
+import cn.hutool.core.date.DatePattern;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * 用户详情实体
+ *
+ * @author Joshua
+ * @version 1.0
+ * @date 23/3/2023 0:49
+ * @email by.Moonlit@hotmail.com
+ */
+@Data
+public class UserDetail implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -5380794553316719154L;
+
+    /**
+     * id
+     */
+    private Long id;
+
+    /**
+     * 用户id
+     */
+    private Long userId;
+
+    /**
+     * 昵称
+     */
+    private String nickName;
+
+    /**
+     * 头像
+     */
+    private String icon;
+
+    /**
+     * 性別
+     */
+    private Integer sex;
+
+    /**
+     * 更新时间
+     */
+    @JsonFormat(timezone = "GMT+8", pattern = DatePattern.NORM_DATETIME_PATTERN)
+    private LocalDateTime updateDate;
+
+}
