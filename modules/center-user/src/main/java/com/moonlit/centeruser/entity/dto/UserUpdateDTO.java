@@ -2,7 +2,6 @@ package com.moonlit.centeruser.entity.dto;
 
 import lombok.Data;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -16,7 +15,6 @@ import java.io.Serializable;
 @Data
 public class UserUpdateDTO implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 4860764858918532613L;
 
     /**

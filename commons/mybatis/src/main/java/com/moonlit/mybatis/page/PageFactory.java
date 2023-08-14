@@ -3,8 +3,7 @@ package com.moonlit.mybatis.page;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.moonlit.common.network.HttpServletUtils;
-
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * 默认分页实体
@@ -33,7 +32,6 @@ public class PageFactory {
         HttpServletRequest request = HttpServletUtils.getRequest();
         int pageSize = 20;
         int pageNo = 1;
-
         //每页条数
         String pageSizeString = request.getParameter(DEFAULT_PAGE_SIZE);
         if (ObjectUtil.isNotEmpty(pageSizeString)) {
@@ -41,13 +39,11 @@ public class PageFactory {
             // 每页大于50条数据时，使用默认值
             pageSize = parseInt > 50 ? pageSize : parseInt;
         }
-
         //第几页
         String pageNoString = request.getParameter(DEFAULT_PAGE_NO);
         if (ObjectUtil.isNotEmpty(pageNoString)) {
             pageNo = Integer.parseInt(pageNoString);
         }
-
         return new Page<>(pageNo, pageSize);
     }
 

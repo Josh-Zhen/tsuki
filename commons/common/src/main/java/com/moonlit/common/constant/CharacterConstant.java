@@ -77,4 +77,5 @@ public class CharacterConstant {
      */
     public static String ESCAPE_COMMA = "\\.";
 
+    public static String IN_VAIN = "null";
 }

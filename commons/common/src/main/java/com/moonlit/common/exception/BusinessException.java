@@ -8,6 +8,8 @@ import lombok.EqualsAndHashCode;
 import java.io.Serial;
 
 /**
+ * 自定义异常类
+ *
  * @author Joshua
  * @version 1.0
  * @date 21/3/2023 13:26

@@ -30,6 +30,16 @@ spring:
 #        min-idle: 0
 #  cache:
 #    type: redis
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: Joshua
+#    password: Moonlit/2
+#    # 确认回调
+#    publisher-returns: true
+#    # 消息的确认会返回
+#    template:
+#      mandatory: true
 
 mybatis-plus:
   mapper-locations: classpath*:**/mapper/*/*.xml

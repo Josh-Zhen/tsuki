@@ -4,8 +4,8 @@ import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.PageUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -18,9 +18,9 @@ import java.util.List;
  * @email by.Moonlit@hotmail.com
  */
 @Data
+@NoArgsConstructor
 public class PageResult<T> implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
@@ -57,9 +57,6 @@ public class PageResult<T> implements Serializable {
      * 分页彩虹
      */
     private int[] rainbow;
-
-    public PageResult() {
-    }
 
     /**
      * 将mybatis-plus的page转成自定义的PageResult，扩展了totalPage总页数，和rainBow彩虹条

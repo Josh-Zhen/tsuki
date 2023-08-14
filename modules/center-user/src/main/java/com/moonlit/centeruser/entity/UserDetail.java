@@ -4,7 +4,6 @@ import cn.hutool.core.date.DatePattern;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -19,7 +18,6 @@ import java.time.LocalDateTime;
 @Data
 public class UserDetail implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = -5380794553316719154L;
 
     /**

@@ -2,11 +2,10 @@ package com.moonlit.common.network;
 
 import com.moonlit.common.exception.BusinessException;
 import com.moonlit.common.exception.enums.CommonErrorEnum;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * HttpServlet工具类

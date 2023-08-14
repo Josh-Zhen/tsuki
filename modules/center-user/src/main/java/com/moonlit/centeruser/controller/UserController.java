@@ -5,7 +5,7 @@ import com.moonlit.centeruser.entity.dto.UserUpdateDTO;
 import com.moonlit.centeruser.service.UserService;
 import com.moonlit.common.response.Result;
 import com.moonlit.mybatis.page.PageResult;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.*;
  * @email by.Moonlit@hotmail.com
  */
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     /**
      * 分页查询用户

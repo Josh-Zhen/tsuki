@@ -19,6 +19,7 @@
         <module>elasticsearch</module>
         <module>minio</module>
         <module>redis</module>
+        <module>rabbitmq</module>
     </modules>
 
 </project>
