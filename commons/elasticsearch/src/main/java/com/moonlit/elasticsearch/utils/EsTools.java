@@ -2,8 +2,8 @@ package com.moonlit.elasticsearch.utils;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.moonlit.common.constant.CharacterConstant;
-import com.moonlit.elasticsearch.annotation.EsDataIndex;
 import com.moonlit.elasticsearch.annotation.EsId;
+import com.moonlit.elasticsearch.annotation.EsIndex;
 import com.moonlit.elasticsearch.constant.ElasticsearchCodeEnum;
 
 import java.lang.reflect.Field;
@@ -24,7 +24,7 @@ public class EsTools {
      * @return 名称
      */
     public static String getIndexName(Class<?> clazz) {
-        EsDataIndex index = clazz.getAnnotation(EsDataIndex.class);
+        EsIndex index = clazz.getAnnotation(EsIndex.class);
         if (ObjectUtil.isEmpty(index)) {
             throw new IllegalArgumentException(ElasticsearchCodeEnum.ANNOTATION_IS_NOT_CONFIGURED.getMessage());
         }

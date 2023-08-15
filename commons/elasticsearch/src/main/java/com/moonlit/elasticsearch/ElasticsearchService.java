@@ -5,8 +5,8 @@ import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.ElasticsearchException;
 import co.elastic.clients.elasticsearch._types.FieldSort;
 import co.elastic.clients.elasticsearch._types.SortOrder;
-import co.elastic.clients.elasticsearch._types.query_dsl.MultiMatchQuery;
-import co.elastic.clients.elasticsearch._types.query_dsl.Operator;
+import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
 import co.elastic.clients.elasticsearch.core.GetResponse;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
@@ -226,9 +226,12 @@ public class ElasticsearchService<T> {
     private ObjectBuilder<SearchRequest> construct(SearchRequest.Builder s, SearchParameterBO bo, String indexName, EsPage<T> page) {
         // 设置查询索引
         s.index(indexName);
-        // 有内容时查询
-        if (bo.getParamsList().size() > 0) {
-            s.query(q -> q.multiMatch(m -> this.queryParams(m, bo.getParamsList())));
+        // 条件查询
+        if (ObjectUtil.isNotEmpty(bo.getParamsList()) && bo.getParamsList().size() > 0) {
+            s.query(q -> q.bool(b -> this.queryParams(b, bo.getParamsList())));
+        } else {
+            // 排除"_search"这个结果
+            s.query(q -> q.bool(b -> b.mustNot(m -> m.term(t -> t.field("_id").value("_search")))));
         }
 
         // 设置分页参数(从第几条数据开始，每页多少条数据)
@@ -244,19 +247,20 @@ public class ElasticsearchService<T> {
     }
 
     /**
-     * 查询参数构建器
+     * 查询参数构造器
      *
-     * @param m          查询实体
+     * @param b          构造器
      * @param paramsList 参数列表
-     * @return 查询参数
+     * @return 请求头
      */
-    private ObjectBuilder<MultiMatchQuery> queryParams(MultiMatchQuery.Builder m, List<ParamsBO> paramsList) {
+    private ObjectBuilder<BoolQuery> queryParams(BoolQuery.Builder b, List<ParamsBO> paramsList) {
         paramsList.forEach(params -> {
-            m.fields(params.getFieldName())
+            b.must(MatchQuery.of(m -> m
+                    .field(params.getFieldName())
                     .query(params.getValues())
-                    .operator(Operator.And);
+            )._toQuery());
         });
-        return m;
+        return b;
     }
 
     /**

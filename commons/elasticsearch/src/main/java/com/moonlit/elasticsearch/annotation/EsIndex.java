@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface EsDataIndex {
+public @interface EsIndex {
 
     /**
      * @return 索引名称
